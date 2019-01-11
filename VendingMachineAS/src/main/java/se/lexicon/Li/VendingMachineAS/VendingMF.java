@@ -30,7 +30,7 @@ public class VendingMF {
 	    			valid=true;
 	    			break;
 	    		default:
-	    			System.out.println("not a valid Denomination.");
+	    			System.out.println("Not a valid Denomination.");
 	    		}
 	    	}
 	    	return n;    

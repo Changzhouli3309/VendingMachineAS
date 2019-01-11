@@ -27,7 +27,7 @@ public class FixInt {
         		n =Integer.parseInt(scan.nextLine());
         		valid = true;
         	}catch(NumberFormatException e) {
-        		System.out.println("You did not enter a valid number(int)");
+        		System.out.println("Not valid enter.(int)");
         	}
     	}
     	return n;    	
@@ -47,7 +47,7 @@ public class FixInt {
 				valid=true;				
 			}
 			if(!valid) {
-				System.out.println("You did not enter a valid number(int)");
+				System.out.println("Not valid enter.(int "+min+"-"+max+")");
 			}
     	}
 		return re;
@@ -73,7 +73,7 @@ public class FixInt {
 				}
 			}
 			if(!valid) {
-				System.out.println("You did not enter a valid number(int)");
+				System.out.println("Not valid enter.(int between "+min+"-"+max+")");
 			}
     	}
 		return re;

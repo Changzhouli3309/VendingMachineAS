@@ -15,7 +15,7 @@ public class App
 					+ "1-Put money in, 2-Purchase, 3-Check your bag, 4-Details, 5-Leave(or 0)");
 			switch (FixInt.getIntFromLimit(5, 0)) {
 			case 1:
-				pl("How much?(in rael denominations like: 1,5,10kr...)");
+				pl("How much?(in rael denominations like: 1,5,10kr...) 0-cancel");
 				vmMF.setBalance(vmMF.getBalance()+vmMF.getVinputB());
 				break;
 			case 2:
@@ -25,17 +25,14 @@ public class App
 				} else {
 					pl("Enter ID:");
 					int id=FixInt.getIntFromLimit(9, 1)-1;
-					pl(mB.getFromIndex(id).nameAndPrice()+"\nAmount:(0-cancel)");
-					int amount=FixInt.getIntFromLimit(999, 0);
+					int max=vmMF.getBalance()/mB.getFromIndex(id).getPrice();
+					pl(mB.getFromIndex(id).nameAndPrice()+"\nAmount:(Max: "+max+", 0-cancel)");
+					int amount=FixInt.getIntFromLimit(max, 0);
 					if (amount!=0) {
 						int restBalace=vmMF.getBalance()-amount*mB.getFromIndex(id).getPrice();
-						if (restBalace<0) {
-							pl("Your balance is too low to buy.\n");
-						}else {
-							vmMF.setBalance(restBalace);
-							mB.getFromIndex(id).setAmount(mB.getFromIndex(id).getAmount()+amount);
-							pl("You put "+amount+"st "+mB.getFromIndex(id).getName()+" in your bag.\n");
-						}						
+						vmMF.setBalance(restBalace);
+						mB.getFromIndex(id).setAmount(mB.getFromIndex(id).getAmount()+amount);
+						pl("You put "+amount+"st "+mB.getFromIndex(id).getName()+" in your bag.\n");
 					}else {
 						pl();
 					}					
@@ -52,8 +49,8 @@ public class App
 							boolean picked=true;
 							int bagIndex = mB.matchID(pickNumber);
 							while (picked) {
-								pl(mB.getFromIndex(bagIndex).getName() + " " + 
-										mB.getFromIndex(bagIndex).getAmount() + "st");
+								pl("-"+mB.getFromIndex(bagIndex).getName() + " " + 
+										mB.getFromIndex(bagIndex).getAmount() + "st-");
 								pl("1-Use, 2-Details, 3-Back(or 0)");
 								switch (FixInt.getIntFromLimit(3, 0)) {
 								case 1:
