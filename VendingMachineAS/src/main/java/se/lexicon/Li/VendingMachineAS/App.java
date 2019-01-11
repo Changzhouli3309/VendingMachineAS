@@ -1,7 +1,9 @@
 package se.lexicon.Li.VendingMachineAS;
 
 public class App {
+
 	public static void main(String[] args) {
+
 		VendingMF vmMF = new VendingMF(0);
 		MyBag mB = new MyBag();
 		boolean run = true;
@@ -13,7 +15,7 @@ public class App {
 					+ "1-Put money in, 2-Purchase, 3-Check your bag, 4-Details, 5-Leave(or 0)");
 			switch (FixInt.getIntFromLimit(5, 0)) {
 			case 1:
-				pl("How much?(in rael denominations like: 1,5,10kr...) 0-cancel");
+				pl("How much?(With real denominations only, like: 1,5,10kr...) 0-Cancel");
 				vmMF.setBalance(vmMF.getBalance() + vmMF.getVinputB());
 				break;
 			case 2:
@@ -24,7 +26,7 @@ public class App {
 					pl("Enter ID:");
 					int id = FixInt.getIntFromLimit(9, 1) - 1;
 					int max = vmMF.getBalance() / mB.getFromIndex(id).getPrice();
-					pl(mB.getFromIndex(id).nameAndPrice() + "\nAmount:(Max: " + max + ", 0-cancel)");
+					pl(mB.getFromIndex(id).nameAndPrice() + "\nAmount:(Max: " + max + ", 0-Cancel)");
 					int amount = FixInt.getIntFromLimit(max, 0);
 					if (amount != 0) {
 						int restBalace = vmMF.getBalance() - amount * mB.getFromIndex(id).getPrice();
@@ -41,7 +43,7 @@ public class App {
 				while (inBag) {
 					pl(mB);
 					if (!mB.isEmptyBag()) {
-						pl("Enter number to pick item.(0-Back)");
+						pl("Enter number to pick item.(0-Cancel)");
 						int pickNumber = FixInt.getIntFromLimit(mB.getAmountType(), 0);
 						if (pickNumber != 0) {
 							boolean picked = true;
@@ -49,7 +51,7 @@ public class App {
 							while (picked) {
 								pl("-" + mB.getFromIndex(bagIndex).getName() + " "
 										+ mB.getFromIndex(bagIndex).getAmount() + "st-");
-								pl("1-Use, 2-Details, 3-Back(or 0)");
+								pl("1-Use, 2-Details, 3-Cancel(or 0)");
 								switch (FixInt.getIntFromLimit(3, 0)) {
 								case 1:
 									// Amount-1,when use
@@ -78,7 +80,7 @@ public class App {
 				break;
 			case 4:
 				printVM();
-				pl("Eneter ID:(0-back)");
+				pl("Eneter ID:(0-Cansel)");
 				int pickNumber = FixInt.getIntFromLimit(9, 0) - 1;
 				if (pickNumber != -1) {
 					pl(mB.getFromIndex(pickNumber));
@@ -100,8 +102,9 @@ public class App {
 	 */
 	public static void printVM() {
 		MyBag b = new MyBag();
-		String[] prod = { "|Cola      ", "|Sprite    ", "|Juice     ", "|Gum       ", "|Chocolate ", "|Lollipop  ",
-				"|Cake      ", "|Peanut    ", "|Biscuits  " };
+		String[] prod = { "|Cola      ", "|Sprite    ", "|Juice     ",
+						  "|Gum       ", "|Chocolate ", "|Lollipop  ",
+						  "|Cake      ", "|Peanut    ", "|Biscuits  " };
 		String s = prod[1] + prod[2] + prod[3];
 		plLine(s.length() + 1);
 		int n1 = 0, n2 = 0;
@@ -182,7 +185,6 @@ public class App {
 			} else {
 				System.out.print("-\n");
 			}
-
 		}
 	}
 }
