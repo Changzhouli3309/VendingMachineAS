@@ -29,7 +29,7 @@ public class DrinksVM extends ProductsVM{
 	@Override
 	public void toUse() {
 		// TODO Auto-generated method stub
-		System.out.println("You drink a "+container+" "+getName()+"\n");
+		System.out.println("You drink a "+container+" "+getName()+".\n");
 		setAmount(getAmount()-1);
 	}
 

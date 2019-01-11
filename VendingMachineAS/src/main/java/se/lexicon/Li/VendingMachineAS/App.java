@@ -4,23 +4,23 @@ public class App
 {
     public static void main( String[] args )
     {	
-    	boolean run=true,inBag=false,picked=false;
     	VendingMF vmMF=new VendingMF(0);
     	MyBag mB= new MyBag();
+    	boolean run=true;
     	
     	pl("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nWelcome to the Vending Machine!!!");
     	printVM();
     	while (run) {
-			pl("---Menu---(balance: "+vmMF.getBalance()+"kr)\n"
-					+ "1-Put money in, 2-Buy Staffs, 3-Check your bag, 4-Details, 5-Leave");
-			switch (FixInt.getIntFromLimit(5, 1)) {
+			pl("---Menu---(Balance: "+vmMF.getBalance()+"kr)\n"
+					+ "1-Put money in, 2-Purchase, 3-Check your bag, 4-Details, 5-Leave(or 0)");
+			switch (FixInt.getIntFromLimit(5, 0)) {
 			case 1:
 				pl("How much?(in rael denominations like: 1,5,10kr...)");
 				vmMF.setBalance(vmMF.getBalance()+vmMF.getVinputB());
 				break;
 			case 2:
 				if (vmMF.getBalance() == 0) {
-					pl("You have 0 banlance in the vending machin.\n");
+					pl("You have 0 banlance in the vending machine.\n");
 					break;
 				} else {
 					pl("Enter ID:");
@@ -33,7 +33,7 @@ public class App
 							pl("Your balance is too low to buy.\n");
 						}else {
 							vmMF.setBalance(restBalace);
-							mB.getFromIndex(id).setAmount(amount);
+							mB.getFromIndex(id).setAmount(mB.getFromIndex(id).getAmount()+amount);
 							pl("You put "+amount+"st "+mB.getFromIndex(id).getName()+" in your bag.\n");
 						}						
 					}else {
@@ -42,29 +42,31 @@ public class App
 				}
 				break;
 			case 3:
-				inBag=true;
+				boolean inBag=true;
 				while (inBag) {
 					pl(mB);
 					if (!mB.isEmptyBag()) {
 						pl("Enter number to pick item.(0-Back)");
-						int choos = mB.matchID(FixInt.getIntFromLimit(mB.getAmountType(), 0));
-						if (choos != 0) {
-							picked=true;
+						int pickNumber =FixInt.getIntFromLimit(mB.getAmountType(), 0);
+						if (pickNumber != 0) {
+							boolean picked=true;
+							int bagIndex = mB.matchID(pickNumber);
 							while (picked) {
-								pl(mB.getFromIndex(choos).getName() + " " + 
-										mB.getFromIndex(choos).getAmount() + "st");
-								pl("1-Use, 2-Details, 3-Back");
-								switch (FixInt.getIntFromLimit(3, 1)) {
+								pl(mB.getFromIndex(bagIndex).getName() + " " + 
+										mB.getFromIndex(bagIndex).getAmount() + "st");
+								pl("1-Use, 2-Details, 3-Back(or 0)");
+								switch (FixInt.getIntFromLimit(3, 0)) {
 								case 1:
 									//Amount-1,when use
-									mB.getFromIndex(choos).toUse();
-									if (mB.getFromIndex(choos).getAmount()==0) {
+									mB.getFromIndex(bagIndex).toUse();
+									if (mB.getFromIndex(bagIndex).getAmount()==0) {
 										picked=false;
 									}
 									break;
 								case 2:
-									pl(mB.getFromIndex(choos));
+									pl(mB.getFromIndex(bagIndex));
 									break;
+								case 0:
 								case 3:
 									picked=false;
 									break;
@@ -82,11 +84,12 @@ public class App
 			case 4:
 				printVM();
 				pl("Eneter ID:(0-back)");
-				int n =FixInt.getIntFromLimit(9, 0)-1;
-				if(n!=-1) {
-					pl(mB.getFromIndex(n));
+				int pickNumber =FixInt.getIntFromLimit(9, 0)-1;
+				if(pickNumber!=-1) {
+					pl(mB.getFromIndex(pickNumber));
 				}
 				break;
+			case 0:
 			case 5:
 				run=!YOrN.bool("Are sure to leave?(y/n)");
 				if (!run) {
@@ -113,7 +116,7 @@ public class App
     		case 2:
     		case 5:
     		case 8:
-    			pt(prod[n1]+"|\n");
+    			pt("|"+addSpace(b.getFromIndex(n1).getName(),10)+"|\n");
     			for (int j =0;j<3;j++) {
     	    		switch(n2){
     	    		case 2:
@@ -130,12 +133,21 @@ public class App
     			}
     			break;
     		default:
-    			pt(prod[n1]);
+    			pt("|"+addSpace(b.getFromIndex(n1).getName(),10));
     			break;
     		}
     		n1++;
     	}
     }
+    
+    public static String addSpace(String s,int n) {
+    	String re=s;
+    	for (int i =0;i<n-s.length();i++) {
+    		re+=" ";
+    	}
+    	return re;
+    }
+    
     
     
     public static void pl(ProductsVM p) {

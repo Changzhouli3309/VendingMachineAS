@@ -24,7 +24,7 @@ public class CandysVM extends ProductsVM{
 	@Override
 	public void toUse() {
 		// TODO Auto-generated method stub
-		System.out.println("You eat a "+getName()+"\n");
+		System.out.println("You eat a "+getName()+".\n");
 		setAmount(getAmount()-1);
 	}
 

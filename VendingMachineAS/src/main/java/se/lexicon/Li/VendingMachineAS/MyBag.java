@@ -15,18 +15,18 @@ public class MyBag {
 								"50cl-Bottle",true);
 		space[2]=new DrinksVM("Juice",0,0,10,"Apple juice made by the maceration and pressing of an apple.",
 								"33cl-Carton",false);
-		space[3]=new CandysVM("Gum",0,0,16,"A soft, cohesive substance designed to be chewed without being swallowed.",
-								150,false);
+		space[3]=new CandysVM("Gum",0,0,14,"A soft, cohesive substance designed to be chewed without being swallowed.",
+								90,false);
 		space[4]=new CandysVM("Chocolate",0,0,24,"A sweet, brown food preparation of roasted and ground cacao seeds.",
 								200,false);
 		space[5]=new CandysVM("Lollipop",0,0,12,"A type of sugar candy consisting of hard candy mounted on a stick.",
 								150,true);
 		space[6]=new SnacksVM("Cake",0,0,18,"Small baked cake with flavor vanilla",
-								200,false);
+								240,false);
 		space[7]=new SnacksVM("Peanut",0,0,21,"Salt peanut in pouch",
-								200,true);
-		space[8]=new SnacksVM("Biscuits",0,0,14,"A flour-based baked food.",
-								150,true);
+								210,true);
+		space[8]=new SnacksVM("Biscuits",0,0,17,"A flour-based baked food.",
+								160,true);
 	}
 	/**
 	 * Get element from space-arrays
@@ -45,10 +45,10 @@ public class MyBag {
 	public int matchID(int n) {
 		for (int i=0;i<space.length;i++) {
 			if (n==space[i].getPlace()) {
-				return i;
+					return i;
 			}
 		}
-		return 0;
+		return 0;		
 	}
 
 
