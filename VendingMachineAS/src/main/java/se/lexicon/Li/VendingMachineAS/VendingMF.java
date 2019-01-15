@@ -65,17 +65,17 @@ public class VendingMF {
 	 */
 	public String printChanges() {
 		String re = "Return balance: " + balance + "Kr\nYou get change: ";
-		int n1 = FixArr.remove0(changes).length;
-		int n2 = 1;
+		int max = FixArr.remove0(changes).length;
+		int n = 1;
 
 		if (getBalance() != 0) {
 			for (int i = 0; i < denominations.length; i++) {
 				if (changes[i] != 0) {
-					if (n2 == n1) {
+					if (n == max) {
 						re += changes[i] + "st " + denominations[i] + "Kr.";
 					} else {
 						re += changes[i] + "st " + denominations[i] + "Kr, ";
-						n2++;
+						n++;
 					}
 				}
 			}
