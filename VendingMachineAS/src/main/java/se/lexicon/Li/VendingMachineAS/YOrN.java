@@ -13,23 +13,17 @@ public class YOrN {
 	 */
 	public static boolean bool(String question) {
 		System.out.println(question);
-		boolean v = false, re = true;
-		while (!v) {
+		while (true) {
 			String sr = scan.nextLine();
 			String s = sr.toLowerCase();
 			switch (s) {
 			case "y":
-				v = true;
-				re = true;
-				break;
+				return true;
 			case "n":
-				v = true;
-				re = false;
-				break;
+				return false;
 			default:
-				System.out.println("Not enter avalidable enter.(y/n)");
+				System.out.println("Not a vaild enter.(y/n)");
 			}
 		}
-		return re;
 	}
 }

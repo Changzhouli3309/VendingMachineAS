@@ -1,7 +1,6 @@
 package se.lexicon.Li.VendingMachineAS;
 
 public class DrinksVM extends ProductsVM {
-
 	private String container;
 	private boolean carbonated;
 

@@ -16,10 +16,9 @@ public class VendingMF {
 	 * @return number
 	 */
 	public int getVinputB() {
-		boolean valid = false;
-		int n = 0;
-		while (!valid) {
-			switch (n = FixInt.getInt()) {
+		while (true) {
+			int n = FixInt.getInt();
+			switch (n) {
 			case 0:
 			case 1:
 			case 5:
@@ -29,32 +28,30 @@ public class VendingMF {
 			case 100:
 			case 500:
 			case 1000:
-				valid = true;
-				break;
+				return n;
 			default:
 				System.out.println("Not a valid Denomination.");
 			}
 		}
-		return n;
 	}
 
 	public void countChanges() {
 		/*
-		 * denominations[7] = balance/1000; 
-		 * denominations[6] = balance%1000/500;
-		 * denominations[5] = balance%1000%500/100; 
-		 * denominations[4] = balance%1000%500%100/50; 
-		 * denominations[3] = balance%1000%500%100%50/20;
-		 * denominations[2] = balance%1000%500%100%50%20/10; 
-		 * denominations[1] = balance%1000%500%100%50%20%10/5; 
-		 * denominations[0] = balance%1000%500%100%50%20%10%5/1;
+		 * changes[7] = balance/1000; 
+		 * changes[6] = balance%1000/500;
+		 * changes[5] = balance%1000%500/100; 
+		 * changes[4] = balance%1000%500%100/50; 
+		 * changes[3] = balance%1000%500%100%50/20;
+		 * changes[2] = balance%1000%500%100%50%20/10; 
+		 * changes[1] = balance%1000%500%100%50%20%10/5; 
+		 * changes[0] = balance%1000%500%100%50%20%10%5/1;
 		 */
-		for (int i = 0; i < denominations.length; i++) {
+		for (int i = denominations.length-1; i >= 0; i--) {
 			int n = getBalance();
-			for (int j = 0; j < i; j++) {
-				n %= denominations[denominations.length - j - 1];
+			for (int j = denominations.length-1; j > i; j--) {
+				n %= denominations[j];
 			}
-			changes[denominations.length - i - 1] = n / denominations[denominations.length - i - 1];
+			changes[i] = n / denominations[i];
 		}
 	}
 
@@ -74,7 +71,7 @@ public class VendingMF {
 					if (n == max) {
 						re += changes[i] + "st " + denominations[i] + "Kr.";
 					} else {
-						re += changes[i] + "st " + denominations[i] + "Kr, ";
+						re += changes[i] + "st " + denominations[i] + "Kr| ";
 						n++;
 					}
 				}
@@ -85,6 +82,11 @@ public class VendingMF {
 		return re;
 	}
 
+	/**
+	 * auto countChanges when set balance
+	 * 
+	 * @param balance
+	 */
 	public VendingMF(int balance) {
 		this.balance = balance;
 		countChanges();

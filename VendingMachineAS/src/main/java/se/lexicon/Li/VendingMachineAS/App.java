@@ -156,7 +156,7 @@ public class App {
 			n1++;
 		}
 	}
-
+	
 	public static String addSpace(String s, int n) {
 		String re = s;
 		for (int i = 0; i < n - s.length(); i++) {
