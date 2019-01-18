@@ -37,6 +37,7 @@ public class VendingMF {
 
 	public void countChanges() {
 		/*
+		 * denominations = { 1, 5, 10, 20, 50, 100, 500, 1000 };
 		 * changes[7] = balance/1000; 
 		 * changes[6] = balance%1000/500;
 		 * changes[5] = balance%1000%500/100; 
@@ -81,15 +82,17 @@ public class VendingMF {
 		}
 		return re;
 	}
-
+	public VendingMF() {
+		this.balance=0;
+	}
 	/**
 	 * auto countChanges when set balance
 	 * 
 	 * @param balance
 	 */
 	public VendingMF(int balance) {
-		this.balance = balance;
-		countChanges();
+		this();
+		setBalance(balance);
 	}
 
 	public int getBalance() {
