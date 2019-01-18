@@ -29,4 +29,20 @@ public class CandysVM extends ProductsVM {
 		setAmount(getAmount() - 1);
 	}
 
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public boolean isHard() {
+		return hard;
+	}
+
+	public void setHard(boolean hard) {
+		this.hard = hard;
+	}
+
 }

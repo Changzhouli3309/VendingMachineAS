@@ -22,7 +22,7 @@ public class YOrN {
 			case "n":
 				return false;
 			default:
-				System.out.println("Not a vaild enter.(y/n)");
+				System.out.println("Not a valid enter.(y/n)");
 			}
 		}
 	}

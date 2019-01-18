@@ -15,28 +15,24 @@ public class FixInt {
 	 * @return a random number
 	 */
 	public static int randomInt(int max, int min) {
-		int re = ran.nextInt(max - min) + min;
-		return re;
+		return ran.nextInt(max - min) + min;
 	}
 
 	/**
-	 * Check the string is number with in range of Integer or not, until you get a
+	 * Check the input string is number with in range of Integer or not, until you get a
 	 * valid number
 	 * 
 	 * @return valid number
 	 */
 	public static int getInt() {
-		boolean valid = false;
-		int n = 0;
-		while (!valid) {
+		while (true) {
 			try {
-				n = Integer.parseInt(scan.nextLine());
-				valid = true;
+				int n = Integer.parseInt(scan.nextLine());
+				return n;
 			} catch (NumberFormatException e) {
 				System.out.println("Not valid enter.(int)");
 			}
 		}
-		return n;
 	}
 
 	/**
@@ -47,18 +43,13 @@ public class FixInt {
 	 * @return valid number
 	 */
 	public static int getIntFromLimit(int max, int min) {
-		int re = 0;
-		boolean valid = false;
-		while (!valid) {
-			re = getInt();
-			if (re >= min && re <= max) {
-				valid = true;
+		while (true) {
+			int n = getInt();
+			if (n >= min && n <= max) {
+				return n;
 			}
-			if (!valid) {
-				System.out.println("Not valid enter.(int " + min + "-" + max + ")");
-			}
+			System.out.println("Not valid enter.(int " + min + "-" + max + ")");
 		}
-		return re;
 	}
 
 	/**
@@ -70,23 +61,43 @@ public class FixInt {
 	 * @return
 	 */
 	public static int getIntFromLimit(int max, int min, boolean with) {
-		int re = 0;
-		boolean valid = false;
-		while (!valid) {
-			re = getInt();
-			if (re >= min && re <= max) {
-				valid = true;
-				if (!with) {
-					if (re == min || re == max) {
-						valid = false;
-					}
+		while (true) {
+			int n = getInt();
+			if (n >= min && n <= max) {
+				if (!with && n == min || n == max) {
+				} else {
+					return n;
 				}
 			}
-			if (!valid) {
-				System.out.println("Not valid enter.(int between " + min + "-" + max + ")");
-			}
+			System.out.println("Not valid enter.(int not with " + min + "-" + max + ")");
 		}
-		return re;
+	}
+
+	public static int getIntFromLimit(int max, int min, boolean wmax, boolean wmin) {
+		while (true) {
+			int n = getInt();
+			if (n >= min && n <= max) {
+				if (!wmax && n == max) {
+				} else if (!wmin && n == min) {
+				} else {
+					return n;
+				}
+			}
+			String ms = "Not valid enter.(int";
+			if (!wmin) {
+				ms += " without " + min + " -";
+			} else {
+				ms += " with " + min + " -";
+			}
+
+			if (!wmax) {
+				ms += " without " + max + ")";
+			} else {
+				ms += " with " + max + ")";
+			}
+			System.out.println(ms);
+		}
+
 	}
 
 	/**
@@ -97,6 +108,9 @@ public class FixInt {
 	 */
 	public static String printN(double n) {
 		String s = "" + (int) n;
+		if (n - (int) n > 0) {
+			s = "" + n;
+		}
 		return s;
 	}
 

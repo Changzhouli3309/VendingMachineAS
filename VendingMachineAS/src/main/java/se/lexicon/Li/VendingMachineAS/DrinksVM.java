@@ -29,4 +29,20 @@ public class DrinksVM extends ProductsVM {
 		setAmount(getAmount() - 1);
 	}
 
+	public String getContainer() {
+		return container;
+	}
+
+	public void setContainer(String container) {
+		this.container = container;
+	}
+
+	public boolean isCarbonated() {
+		return carbonated;
+	}
+
+	public void setCarbonated(boolean carbonated) {
+		this.carbonated = carbonated;
+	}
+
 }
