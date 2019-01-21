@@ -180,32 +180,16 @@ public class App {
 		return re;
 	}
 
-	public static void pl(ProductsVM p) {
-		System.out.println(p);
-	}
-
-	public static void pl(MyBag m) {
-		System.out.println(m);
-	}
-
-	public static void pl(VendingMF m) {
-		System.out.println(m);
-	}
-
 	public static void pl() {
 		System.out.println();
 	}
 
-	public static void pl(String s) {
-		System.out.println(s);
+	public static void pl(Object o) {
+		System.out.println(o);
 	}
 
-	public static void pl(int n) {
-		System.out.println(n);
-	}
-
-	public static void pt(String s) {
-		System.out.print(s);
+	public static void pt(Object o) {
+		System.out.print(o);
 	}
 
 	/**
