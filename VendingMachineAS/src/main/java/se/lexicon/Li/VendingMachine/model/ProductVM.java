@@ -1,4 +1,4 @@
-package se.lexicon.Li.VendingMachineAS.model;
+package se.lexicon.Li.VendingMachine.model;
 
 public abstract class ProductVM {
 	private String name;

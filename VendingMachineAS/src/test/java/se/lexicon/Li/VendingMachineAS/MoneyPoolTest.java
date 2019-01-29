@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import org.junit.*;
 
-import se.lexicon.Li.VendingMachineAS.data.VendingMachineImp;
+import se.lexicon.Li.VendingMachine.data.VendingMachineImp;
 
 public class MoneyPoolTest {
 	private VendingMachineImp testvm=new VendingMachineImp();

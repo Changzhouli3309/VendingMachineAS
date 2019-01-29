@@ -2,9 +2,9 @@ package se.lexicon.Li.VendingMachineAS;
 
 import org.junit.*;
 
-import se.lexicon.Li.VendingMachineAS.data.UsersBagImp;
-import se.lexicon.Li.VendingMachineAS.model.DrinksVM;
-import se.lexicon.Li.VendingMachineAS.model.ProductVM;
+import se.lexicon.Li.VendingMachine.data.UsersBagImp;
+import se.lexicon.Li.VendingMachine.model.DrinksVM;
+import se.lexicon.Li.VendingMachine.model.ProductVM;
 
 public class MyBagTest {
 

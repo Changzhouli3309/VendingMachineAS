@@ -1,11 +1,12 @@
-package se.lexicon.Li.VendingMachineAS.controller;
+package se.lexicon.Li.VendingMachine.controller;
 
-import se.lexicon.Li.VendingMachineAS.model.ProductVM;
-import se.lexicon.Li.VendingMachineAS.data.UsersBag;
-import se.lexicon.Li.VendingMachineAS.data.UsersBagImp;
-import se.lexicon.Li.VendingMachineAS.data.VendingMachineImp;
 import static se.lexicon.Li.VendingMachine.util.UserInput.*;
 import static se.lexicon.Li.VendingMachine.util.UtilString.*;
+
+import se.lexicon.Li.VendingMachine.data.UsersBag;
+import se.lexicon.Li.VendingMachine.data.UsersBagImp;
+import se.lexicon.Li.VendingMachine.data.VendingMachineImp;
+import se.lexicon.Li.VendingMachine.model.ProductVM;
 
 public class UserUI {
 	

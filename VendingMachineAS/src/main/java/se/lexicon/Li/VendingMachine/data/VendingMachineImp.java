@@ -1,12 +1,12 @@
-package se.lexicon.Li.VendingMachineAS.data;
+package se.lexicon.Li.VendingMachine.data;
 
 import java.util.Arrays;
 import java.util.List;
 
-import se.lexicon.Li.VendingMachineAS.model.CandysVM;
-import se.lexicon.Li.VendingMachineAS.model.DrinksVM;
-import se.lexicon.Li.VendingMachineAS.model.ProductVM;
-import se.lexicon.Li.VendingMachineAS.model.SnacksVM;
+import se.lexicon.Li.VendingMachine.model.CandysVM;
+import se.lexicon.Li.VendingMachine.model.DrinksVM;
+import se.lexicon.Li.VendingMachine.model.ProductVM;
+import se.lexicon.Li.VendingMachine.model.SnacksVM;
 
 public class VendingMachineImp implements VendingMachine{
 	private static int[] changes = new int[8];

@@ -1,9 +1,9 @@
-package se.lexicon.Li.VendingMachineAS.data;
+package se.lexicon.Li.VendingMachine.data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import se.lexicon.Li.VendingMachineAS.model.ProductVM;
+import se.lexicon.Li.VendingMachine.model.ProductVM;
 
 public class UsersBagImp implements UsersBag {
 	private static List<ProductVM> items = new ArrayList<>();

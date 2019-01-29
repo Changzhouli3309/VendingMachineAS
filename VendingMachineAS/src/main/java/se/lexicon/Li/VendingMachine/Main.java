@@ -1,6 +1,6 @@
 package se.lexicon.Li.VendingMachine;
 
-import se.lexicon.Li.VendingMachineAS.controller.UserUI;
+import se.lexicon.Li.VendingMachine.controller.UserUI;
 
 public class Main {
 	

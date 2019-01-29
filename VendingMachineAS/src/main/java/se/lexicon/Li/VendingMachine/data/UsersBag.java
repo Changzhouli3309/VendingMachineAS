@@ -1,8 +1,8 @@
-package se.lexicon.Li.VendingMachineAS.data;
+package se.lexicon.Li.VendingMachine.data;
 
 import java.util.List;
 
-import se.lexicon.Li.VendingMachineAS.model.ProductVM;
+import se.lexicon.Li.VendingMachine.model.ProductVM;
 
 public interface UsersBag {
 	
