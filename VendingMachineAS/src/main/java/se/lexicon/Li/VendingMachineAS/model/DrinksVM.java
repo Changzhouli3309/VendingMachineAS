@@ -1,20 +1,18 @@
-package se.lexicon.Li.VendingMachineAS;
+package se.lexicon.Li.VendingMachineAS.model;
 
-public class DrinksVM extends ProductsVM {
+public class DrinksVM extends ProductVM {
 	private String container;
 	private boolean carbonated;
 
-	public DrinksVM(String name, int place, int amount, int price, String productInfor, 
+	public DrinksVM(String name, int amount, int price, String productInfor, 
 			String container, boolean carbonated) {
-		super(name, place, amount, price, productInfor);
-		// TODO Auto-generated constructor stub
+		super(name, amount, price, productInfor);
 		this.container = container;
 		this.carbonated = carbonated;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		String re = getName() + " in " + container + "\n";
 		re += carbonated ? "Carbonated Drink. " + getPrice() + "kr/st\n"
 				: "None carbonated Drink. " + getPrice() + "kr/st\n";
@@ -24,7 +22,6 @@ public class DrinksVM extends ProductsVM {
 
 	@Override
 	public void toUse() {
-		// TODO Auto-generated method stub
 		System.out.println("You drink a " + container + " " + getName() + ".\n");
 		setAmount(getAmount() - 1);
 	}

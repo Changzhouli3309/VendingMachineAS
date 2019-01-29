@@ -1,8 +1,7 @@
-package se.lexicon.Li.VendingMachineAS;
+package se.lexicon.Li.VendingMachineAS.model;
 
-public abstract class ProductsVM {
+public abstract class ProductVM {
 	private String name;
-	private int place;
 	private int price;
 	private int amount;
 	private String productInfor;
@@ -15,9 +14,8 @@ public abstract class ProductsVM {
 		return getName() + " " + getPrice() + "kr/st";
 	}
 
-	public ProductsVM(String name, int place, int amount, int price, String productInfor) {
+	public ProductVM(String name, int amount, int price, String productInfor) {
 		this.name = name;
-		this.place = place;
 		this.price = price;
 		this.amount = amount;
 		this.productInfor = productInfor;
@@ -45,14 +43,6 @@ public abstract class ProductsVM {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getPlace() {
-		return place;
-	}
-
-	public void setPlace(int place) {
-		this.place = place;
 	}
 
 	public String getProductInfor() {
