@@ -14,7 +14,7 @@ public class UtilNumber {
 	 * @return a random number
 	 */
 	public static int randomInt(int max, int min) {
-		return ran.nextInt(max - min) + min;
+		return ran.nextInt(max + 1 - min) + min;
 	}
 
 	/**
